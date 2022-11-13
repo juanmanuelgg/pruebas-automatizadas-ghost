@@ -1,29 +1,28 @@
-import { launch } from "puppeteer";
+//Importar Playwright
+import { test, expect } from "@playwright/test";
 
-async function main() {
-  const browser = await launch();
-
-  const page = await browser.newPage();
+//Función flecha asíncrona
+test("homepage has title and links to intro page", async ({ page }) => {
+  //Abrir la URL a probar en la página y cargar el proyecto en una SPA
   await page.goto(
     "https://angular-6-registration-login-example.stackblitz.io/register"
   );
-
-  await new Promise((r) => setTimeout(r, 7000));
+  await new Promise((r) => setTimeout(r, 2000));
   await page.screenshot({ path: "./pagina.png" });
-  await page.click("button");
-  await new Promise((r) => setTimeout(r, 9000));
+  await page.click("css=button");
+  await new Promise((r) => setTimeout(r, 2000));
   await page.screenshot({ path: "./pagina2.png" });
   console.log("Project loaded");
 
   //Interactuar con la aplicación web
-  await page.click("a.btn.btn-link");
+  await page.click("css=a.btn.btn-link");
   console.log(`Clicked "cancel". URL is now ${page.url()}`);
 
-  await page.click("a.btn.btn-link");
+  await page.click("css=a.btn.btn-link");
   console.log(`Clicked "register". URL is now ${page.url()}`);
 
-  await page.click("button.btn.btn-primary");
-  let feedback = await page.$$("div.invalid-feedback");
+  await page.click("css=button.btn.btn-primary");
+  let feedback = await page.$$("css=div.invalid-feedback");
 
   let elems = 0;
   for (let i of feedback) {
@@ -38,32 +37,27 @@ async function main() {
   await page.type('input[formcontrolname="lastName"]', "Pruebas");
   await page.type('input[formcontrolname="username"]', "pruebas");
   await page.type('input[formcontrolname="password"]', "MISO4208");
-  await page.click("button.btn.btn-primary");
+  await page.click("css=button.btn.btn-primary");
 
-  await new Promise((r) => setTimeout(r, 7000));
+  await new Promise((r) => setTimeout(r, 2000));
   await page.screenshot({ path: "./success-feedback.png" });
 
-  feedback = await page.$("div.alert.alert-success");
-  let text = await page.evaluate((el) => el.textContent, feedback);
-  console.log(`Success dialog after creating user with message: ${text}`);
+  let feedback2 = await page.$("css=div.alert.alert-success");
+  console.log(
+    `Success dialog after creating user with message: ${
+      feedback2 ? await feedback2.innerText() : "null"
+    }`
+  );
 
   await page.type('input[formcontrolname="username"]', "pruebas");
   await page.type('input[formcontrolname="password"]', "MISO4208");
-  await page.click("button.btn.btn-primary");
-  await new Promise((r) => setTimeout(r, 7000));
+  await page.click("css=button.btn.btn-primary");
+  await new Promise((r) => setTimeout(r, 2000));
 
-  feedback = await page.$("h1");
-
-  text = await page.evaluate((el) => el.textContent, feedback);
+  let feedback3 = await page.$('text="Hi Monitor!"');
   await page.screenshot({ path: "./after-login.png" });
   console.log(
-    `Logged in. Your user was ${
-      text === "Hi Monitor!" ? "successfully" : "not"
-    } created`
+    `Logged in. Your user was ${feedback3 ? "successfully" : "not"} created`
   );
   //...
-
-  await browser.close();
-}
-
-main();
+});
