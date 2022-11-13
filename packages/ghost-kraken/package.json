@@ -4,7 +4,9 @@
   "description": "Pruebas E2E a la plataforma GHOST con el framework Kraken.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "kraken:doctor": "kraken-node doctor",
+    "kraken:run": "kraken-node run",
+    "test": "npm run kraken:run"
   },
   "keywords": [
     "Kraken",
@@ -13,5 +15,8 @@
     "Ghost"
   ],
   "author": "Juan Manuel González Garzón",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {
+    "kraken-node": "^1.0.24"
+  }
 }
