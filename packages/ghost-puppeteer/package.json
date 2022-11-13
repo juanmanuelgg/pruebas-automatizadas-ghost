@@ -1,0 +1,17 @@
+{
+  "name": "ghost-puppeteer",
+  "version": "1.0.0",
+  "description": "Pruebas E2E a la plataforma GHOST con el framework Puppeteer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Puppeteer",
+    "E2E",
+    "testing",
+    "Ghost"
+  ],
+  "author": "Juan Manuel González Garzón",
+  "license": "UNLICENSED"
+}

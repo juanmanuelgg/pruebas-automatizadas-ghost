@@ -1,0 +1,33 @@
+{
+  "name": "pruebas-e2e-ghost",
+  "version": "1.0.0",
+  "description": "Pruebas E2E a la plataforma GHOST",
+  "workspaces": [
+    "packages/ghost-cypress",
+    "packages/ghost-kraken",
+    "packages/ghost-playwright",
+    "packages/ghost-puppeteer"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanmanuelgg/pruebas-e2e-ghost.git"
+  },
+  "keywords": [
+    "Kraken",
+    "Cypress",
+    "Puppeteer",
+    "Playwright",
+    "E2E",
+    "testing",
+    "Ghost"
+  ],
+  "author": "Juan Manuel González Garzón",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/juanmanuelgg/pruebas-e2e-ghost/issues"
+  },
+  "homepage": "https://github.com/juanmanuelgg/pruebas-e2e-ghost#readme"
+}
