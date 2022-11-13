@@ -1,20 +1,21 @@
 {
-  "name": "ghost-playwright",
-  "version": "1.0.0",
-  "description": "Pruebas E2E a la plataforma GHOST con el framework playwright.",
-  "scripts": {
-    "test": "playwright test",
-    "report": "playwright show-report"
-  },
-  "keywords": [
-    "Playwright",
-    "E2E",
-    "testing",
-    "Ghost"
-  ],
-  "author": "Juan Manuel González Garzón",
-  "license": "UNLICENSED",
-  "devDependencies": {
-    "@playwright/test": "^1.27.1"
-  }
+    "name": "ghost-playwright",
+    "version": "1.0.0",
+    "description": "Pruebas E2E a la plataforma GHOST con el framework playwright.",
+    "scripts": {
+        "test": "playwright test",
+        "report": "playwright show-report",
+        "format": "prettier --write tests"
+    },
+    "keywords": [
+        "Playwright",
+        "E2E",
+        "testing",
+        "Ghost"
+    ],
+    "author": "Juan Manuel González Garzón",
+    "license": "MIT",
+    "devDependencies": {
+        "@playwright/test": "^1.27.1"
+    }
 }

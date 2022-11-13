@@ -7,6 +7,15 @@
 
 ## Detalle de  las funcionalidades y escenarios probados.
 
+- Lanzar un navegador e ingresar a la página web de ejemplo.
+- Hacer clic en el enlace "Cancel" y verificar la URL. (Guardar captura).
+- Hacer clic en el enlace "Register" y verificar la URL. (Guardar captura).
+- Hacer clic en el botón "Register" y verificar la existencia del texto de retroalimentación del campo del nombre. (Guardar captura).
+- Llenar todos los campos del formulario de registro con valores cualquiera y la contraseña "MISO4208".
+- Hacer clic en el botón "Register" y verificar la existencia del mensaje de éxito en la creación del usuario.
+- Llenar los campos del formulario de inicio de sesión con las mismas credenciales.
+- Hacer clic en el botón "Login" y verificar la existencia del nombre de usuario en el listado de usuarios.
+
 ### Funcionalidad 1:
 
 #### Escenario 1.1:

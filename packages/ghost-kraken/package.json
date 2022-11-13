@@ -1,22 +1,22 @@
 {
-  "name": "ghost-kraken",
-  "version": "1.0.0",
-  "description": "Pruebas E2E a la plataforma GHOST con el framework Kraken.",
-  "main": "index.js",
-  "scripts": {
-    "kraken:doctor": "kraken-node doctor",
-    "kraken:run": "kraken-node run",
-    "test": "npm run kraken:run"
-  },
-  "keywords": [
-    "Kraken",
-    "E2E",
-    "testing",
-    "Ghost"
-  ],
-  "author": "Juan Manuel González Garzón",
-  "license": "UNLICENSED",
-  "dependencies": {
-    "kraken-node": "^1.0.24"
-  }
+    "name": "ghost-kraken",
+    "version": "1.0.0",
+    "description": "Pruebas E2E a la plataforma GHOST con el framework Kraken.",
+    "main": "index.js",
+    "scripts": {
+        "kraken:doctor": "kraken-node doctor",
+        "kraken:run": "kraken-node run",
+        "test": "npm run kraken:run"
+    },
+    "keywords": [
+        "Kraken",
+        "E2E",
+        "testing",
+        "Ghost"
+    ],
+    "author": "Juan Manuel González Garzón",
+    "license": "MIT",
+    "dependencies": {
+        "kraken-node": "^1.0.24"
+    }
 }

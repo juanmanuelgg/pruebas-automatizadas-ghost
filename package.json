@@ -1,46 +1,50 @@
 {
-  "name": "pruebas-e2e-ghost",
-  "version": "1.0.0",
-  "description": "Pruebas E2E a la plataforma GHOST",
-  "workspaces": [
-    "packages/ghost-cypress",
-    "packages/ghost-kraken",
-    "packages/ghost-playwright",
-    "packages/ghost-puppeteer"
-  ],
-  "scripts": {
-    "dcompose": "docker compose up -d --build",
-    "dstop": "docker compose stop",
-    "dprune": "docker volume prune -f",
-    "drm": "docker compose rm -fsv && npm run dprune",
-    "pretest:cypress": "npm run dcompose",
-    "test:cypress": "npm run test --workspace=ghost-cypress",
-    "pretest:kraken": "npm run dcompose",
-    "test:kraken": "npm run test --workspace=ghost-kraken",
-    "pretest:playwright": "npm run dcompose",
-    "test:playwright": "npm run test --workspace=ghost-playwright",
-    "pretest:puppeteer": "npm run dcompose",
-    "test:puppeteer": "npm run test --workspace=ghost-puppeteer",
-    "pretest": "npm run dcompose",
-    "test": "npm run test --workspace=*"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/juanmanuelgg/pruebas-e2e-ghost.git"
-  },
-  "keywords": [
-    "Kraken",
-    "Cypress",
-    "Puppeteer",
-    "Playwright",
-    "E2E",
-    "testing",
-    "Ghost"
-  ],
-  "author": "Juan Manuel González Garzón",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/juanmanuelgg/pruebas-e2e-ghost/issues"
-  },
-  "homepage": "https://github.com/juanmanuelgg/pruebas-e2e-ghost#readme"
+    "name": "pruebas-e2e-ghost",
+    "version": "1.0.0",
+    "description": "Pruebas E2E a la plataforma GHOST",
+    "workspaces": [
+        "packages/ghost-cypress",
+        "packages/ghost-kraken",
+        "packages/ghost-playwright",
+        "packages/ghost-puppeteer"
+    ],
+    "scripts": {
+        "format": "npm run format --workspace=* --if-present",
+        "dcompose": "docker compose up -d --build",
+        "dstop": "docker compose stop",
+        "dprune": "docker volume prune -f",
+        "drm": "docker compose rm -fsv && npm run dprune",
+        "pretest:cypress": "npm run dcompose",
+        "test:cypress": "npm run test --workspace=ghost-cypress",
+        "pretest:kraken": "npm run dcompose",
+        "test:kraken": "npm run test --workspace=ghost-kraken",
+        "pretest:playwright": "npm run dcompose",
+        "test:playwright": "npm run test --workspace=ghost-playwright",
+        "pretest:puppeteer": "npm run dcompose",
+        "test:puppeteer": "npm run test --workspace=ghost-puppeteer",
+        "pretest": "npm run dcompose",
+        "test": "npm run test --workspace=* --if-present"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/juanmanuelgg/pruebas-e2e-ghost.git"
+    },
+    "keywords": [
+        "Kraken",
+        "Cypress",
+        "Puppeteer",
+        "Playwright",
+        "E2E",
+        "testing",
+        "Ghost"
+    ],
+    "author": "Juan Manuel González Garzón",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/juanmanuelgg/pruebas-e2e-ghost/issues"
+    },
+    "homepage": "https://github.com/juanmanuelgg/pruebas-e2e-ghost#readme",
+    "devDependencies": {
+        "prettier": "^2.7.1"
+    }
 }

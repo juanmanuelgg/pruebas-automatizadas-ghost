@@ -1,20 +1,21 @@
 {
-  "name": "ghost-puppeteer",
-  "version": "1.0.0",
-  "description": "Pruebas E2E a la plataforma GHOST con el framework Puppeteer",
-  "main": "index.js",
-  "scripts": {
-    "test": "node index.mjs"
-  },
-  "keywords": [
-    "Puppeteer",
-    "E2E",
-    "testing",
-    "Ghost"
-  ],
-  "author": "Juan Manuel González Garzón",
-  "license": "UNLICENSED",
-  "dependencies": {
-    "puppeteer": "^19.2.2"
-  }
+    "name": "ghost-puppeteer",
+    "version": "1.0.0",
+    "description": "Pruebas E2E a la plataforma GHOST con el framework Puppeteer",
+    "main": "index.js",
+    "scripts": {
+        "test": "node ./src/index.mjs",
+        "format": "prettier --write src"
+    },
+    "keywords": [
+        "Puppeteer",
+        "E2E",
+        "testing",
+        "Ghost"
+    ],
+    "author": "Juan Manuel González Garzón",
+    "license": "MIT",
+    "dependencies": {
+        "puppeteer": "^19.2.2"
+    }
 }
