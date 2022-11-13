@@ -58,6 +58,9 @@
 #### Escenario 5.4:
 
 ## Instrucciones para ejecutar los escenarios
+```bash
+npm test
+```
 
 ## Artefactos generados de las pruebas.
 
