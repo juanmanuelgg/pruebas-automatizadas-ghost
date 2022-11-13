@@ -1,0 +1,22 @@
+{
+  "name": "ghost-cypress",
+  "version": "1.0.0",
+  "description": "Pruebas E2E a la plataforma GHOST con el framework Cypress.",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test": "npm run cypress:run"
+  },
+  "keywords": [
+    "Cypress",
+    "E2E",
+    "testing",
+    "Ghost"
+  ],
+  "author": "Juan Manuel González Garzón",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "cypress": "^11.0.1"
+  }
+}
