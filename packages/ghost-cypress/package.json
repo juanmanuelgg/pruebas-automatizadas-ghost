@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Pruebas E2E a la plataforma GHOST con el framework Cypress.",
   "scripts": {
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
+    "cypress:open": "cypress open --e2e --browser chrome",
+    "cypress:run": "cypress run --e2e --browser chrome --headless",
     "test": "npm run cypress:run"
   },
   "keywords": [
