@@ -2,7 +2,6 @@
   "name": "ghost-cypress",
   "version": "1.0.0",
   "description": "Pruebas E2E a la plataforma GHOST con el framework Cypress.",
-  "main": "index.js",
   "scripts": {
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",

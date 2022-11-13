@@ -13,5 +13,8 @@
     "Ghost"
   ],
   "author": "Juan Manuel González Garzón",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {
+    "puppeteer": "^19.2.2"
+  }
 }

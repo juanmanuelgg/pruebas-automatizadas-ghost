@@ -2,9 +2,9 @@
   "name": "ghost-playwright",
   "version": "1.0.0",
   "description": "Pruebas E2E a la plataforma GHOST con el framework playwright.",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "playwright test",
+    "report": "playwright show-report"
   },
   "keywords": [
     "Playwright",
@@ -13,5 +13,8 @@
     "Ghost"
   ],
   "author": "Juan Manuel González Garzón",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@playwright/test": "^1.27.1"
+  }
 }
