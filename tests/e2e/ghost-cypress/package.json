@@ -4,7 +4,7 @@
     "description": "Pruebas E2E a la plataforma GHOST con el framework Cypress.",
     "scripts": {
         "cypress:open": "cypress open --e2e --browser chrome",
-        "cypress:run": "cypress run --e2e --browser chrome --headless --spec 'cypress/e2e/example'",
+        "cypress:run": "cypress run --e2e --browser chrome --headless",
         "test": "npm run cypress:run",
         "format": "prettier --write cypress"
     },
@@ -16,10 +16,8 @@
     ],
     "author": "Juan Manuel González Garzón",
     "license": "MIT",
-    "dependencies": {
-        "cypress": "^11.0.1"
-    },
     "devDependencies": {
+        "cypress": "^11.0.1",
         "typescript": "^4.8.4"
     }
 }

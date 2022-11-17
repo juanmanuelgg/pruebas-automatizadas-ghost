@@ -16,7 +16,7 @@
     ],
     "author": "Juan Manuel González Garzón",
     "license": "MIT",
-    "dependencies": {
+    "devDependencies": {
         "kraken-node": "^1.0.24"
     }
 }
