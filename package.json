@@ -1,12 +1,12 @@
 {
-    "name": "pruebas-e2e-ghost",
+    "name": "pruebas-automatizadas-ghost",
     "version": "1.0.0",
-    "description": "Pruebas E2E a la plataforma GHOST",
+    "description": "Pruebas automatizadas a la plataforma GHOST",
     "workspaces": [
-        "packages/ghost-cypress",
-        "packages/ghost-kraken",
-        "packages/ghost-playwright",
-        "packages/ghost-puppeteer"
+        "tests/e2e/ghost-cypress",
+        "tests/e2e/ghost-kraken",
+        "tests/e2e/ghost-playwright",
+        "tests/e2e/ghost-puppeteer"
     ],
     "scripts": {
         "format": "npm run format --workspace=* --if-present",
@@ -15,15 +15,17 @@
         "dprune": "docker volume prune -f",
         "drm": "docker compose rm -fsv && npm run dprune",
         "pretest:cypress": "npm run dcompose",
-        "test:cypress": "npm run test --workspace=ghost-cypress",
+        "test:cypress": "npm test --workspace=tests/e2e/ghost-cypress",
         "pretest:kraken": "npm run dcompose",
-        "test:kraken": "npm run test --workspace=ghost-kraken",
+        "test:kraken": "npm test --workspace=tests/e2e/ghost-kraken",
         "pretest:playwright": "npm run dcompose",
-        "test:playwright": "npm run test --workspace=ghost-playwright",
+        "test:playwright": "npm test --workspace=tests/e2e/ghost-playwright",
         "pretest:puppeteer": "npm run dcompose",
-        "test:puppeteer": "npm run test --workspace=ghost-puppeteer",
+        "test:puppeteer": "npm test --workspace=tests/e2e/ghost-puppeteer",
+        "pretest:e2e": "npm run dcompose",
+        "test:e2e": "npm test --workspace=tests/e2e/* --if-present",
         "pretest": "npm run dcompose",
-        "test": "npm run test --workspace=* --if-present"
+        "test": "npm test --workspace=tests/**/* --if-present"
     },
     "repository": {
         "type": "git",
@@ -34,8 +36,7 @@
         "Cypress",
         "Puppeteer",
         "Playwright",
-        "E2E",
-        "testing",
+        "E2E Testing",
         "Ghost"
     ],
     "author": "Juan Manuel González Garzón",
