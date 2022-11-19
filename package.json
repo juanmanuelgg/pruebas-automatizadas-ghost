@@ -10,7 +10,8 @@
     ],
     "scripts": {
         "format": "npm run format --workspace=* --if-present",
-        "dcompose": "docker compose up -d --build",
+        "dcompose": "export GHOST_VERSION='3.42.6'; export MYSQL_VERSION='5.7.40'; export GHOST_PORT='8081'; docker compose up -d --build",
+        "dcompose:latest": "export GHOST_VERSION='5.22.9'; export MYSQL_VERSION='8.0.31'; export GHOST_PORT='8081'; docker compose up -d --build",
         "dstop": "docker compose stop",
         "dprune": "docker volume prune -f",
         "drm": "docker compose rm -fsv && npm run dprune",
