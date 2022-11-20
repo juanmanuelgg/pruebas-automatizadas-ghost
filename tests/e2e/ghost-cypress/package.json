@@ -4,7 +4,7 @@
     "description": "Pruebas E2E a la plataforma GHOST con el framework Cypress.",
     "scripts": {
         "cypress:open": "cypress open --e2e --browser chrome",
-        "cypress:run": "cypress run --e2e --browser chrome --headless --spec cypress/e2e/ghost",
+        "cypress:run": "cypress run --e2e --browser chrome --headless --spec cypress/e2e/example",
         "test": "npm run cypress:run --",
         "format": "prettier --write cypress"
     },

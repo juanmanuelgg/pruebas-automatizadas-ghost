@@ -1,4 +1,7 @@
 /// <reference types="cypress" />
+import { basename } from 'path';
+
+const scriptName = basename(__filename, '.cy.ts');
 
 const ghostVersion = Cypress.env('GHOST_VERSION');
 const ghostPort = Cypress.env('GHOST_PORT');
@@ -7,7 +10,7 @@ const ghostPort = Cypress.env('GHOST_PORT');
 describe('Test página de Login', () => {
     it('No accede a recursos protegidos', () => {
         cy.visit(`http://localhost:${ghostPort}/`);
-        cy.screenshot(`${ghostVersion}/001`);
+        cy.screenshot(`${scriptName}/${ghostVersion}`);
         // cy.location('pathname').should('equal', '/signinside');
     });
 

@@ -1,10 +1,20 @@
+/// <reference types="cypress" />
+import { basename } from 'path';
+
+const scriptName = basename(__filename, '.cy.ts');
+
+const ghostVersion = Cypress.env('GHOST_VERSION');
+const ghostPort = Cypress.env('GHOST_PORT');
+
 describe('Testing basic Angular registration', () => {
     beforeEach(() => {
         cy.visit(
             'https://angular-6-registration-login-example.stackblitz.io/register'
         );
         cy.wait(7000);
+        cy.screenshot(`${scriptName}/${ghostVersion}/pagina.png`);
         cy.get('button').click();
+        cy.screenshot(`${scriptName}/${ghostVersion}/pagina2.png`);
     });
     it('Test links between registration and login page', () => {
         cy.get('a.btn.btn-link').click();
@@ -24,6 +34,7 @@ describe('Testing basic Angular registration', () => {
         cy.get('div.invalid-feedback').then(($divs) => {
             expect($divs.length).to.equal(4);
         });
+        cy.screenshot(`${scriptName}/${ghostVersion}/form-feedback.png`);
     });
     it('Create an user and login', () => {
         cy.get('form').within(() => {
@@ -34,6 +45,7 @@ describe('Testing basic Angular registration', () => {
             cy.get('button.btn.btn-primary').click();
         });
         cy.wait(1000);
+        cy.screenshot(`${scriptName}/${ghostVersion}/success-feedback.png`);
         //Redirected to login
         cy.get('div.alert.alert-success').should('be.visible');
         cy.get('form').within(() => {
@@ -46,5 +58,6 @@ describe('Testing basic Angular registration', () => {
         cy.get('h1').then(($header) => {
             expect($header[0].innerText).to.equal('Hi Monitor!');
         });
+        cy.screenshot(`${scriptName}/${ghostVersion}/after-login.png`);
     });
 });

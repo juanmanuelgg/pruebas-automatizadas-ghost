@@ -17,12 +17,12 @@ test('homepage has title and links to intro page', async ({
     );
     await new Promise((r) => setTimeout(r, 2000));
     await page.screenshot({
-        path: `screenshots/${ghostVersion}/${scriptName}/pagina.png`
+        path: `screenshots/${scriptName}/${ghostVersion}/pagina.png`
     });
     await page.click('css=button');
     await new Promise((r) => setTimeout(r, 2000));
     await page.screenshot({
-        path: `screenshots/${ghostVersion}/${scriptName}/pagina2.png`
+        path: `screenshots/${scriptName}/${ghostVersion}/pagina2.png`
     });
     console.log('Project loaded');
 
@@ -41,7 +41,7 @@ test('homepage has title and links to intro page', async ({
         elems++;
     }
     await page.screenshot({
-        path: `screenshots/${ghostVersion}/${scriptName}/form-feedback.png`
+        path: `screenshots/${scriptName}/${ghostVersion}/form-feedback.png`
     });
     console.log(
         `Clicked "Register" with an empty form. Feedback is shown in ${elems} elements`
@@ -55,7 +55,7 @@ test('homepage has title and links to intro page', async ({
 
     await new Promise((r) => setTimeout(r, 2000));
     await page.screenshot({
-        path: `screenshots/${ghostVersion}/${scriptName}/success-feedback.png`
+        path: `screenshots/${scriptName}/${ghostVersion}/success-feedback.png`
     });
 
     let feedback2 = await page.$('css=div.alert.alert-success');
@@ -72,7 +72,7 @@ test('homepage has title and links to intro page', async ({
 
     let feedback3 = await page.$('text="Hi Monitor!"');
     await page.screenshot({
-        path: `screenshots/${ghostVersion}/${scriptName}/after-login.png`
+        path: `screenshots/${scriptName}/${ghostVersion}/after-login.png`
     });
     console.log(
         `Logged in. Your user was ${feedback3 ? 'successfully' : 'not'} created`
