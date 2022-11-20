@@ -1,8 +1,22 @@
 import { launch } from 'puppeteer';
+import { promises as fsPromises } from 'fs';
+import { basename } from 'path';
+import { fileURLToPath } from 'url';
 
-const scriptName = 'index';
+const __filename = fileURLToPath(import.meta.url);
+const scriptName = basename(__filename, '.mjs');
 
-async function main() {
+async function createDir(dir) {
+    try {
+        await fsPromises.access(dir);
+    } catch (e) {
+        await fsPromises.mkdir(dir);
+    }
+}
+
+async function main(ghostVersion, ghostPort) {
+    createDir(`screenshots/${scriptName}/${ghostVersion}/`);
+
     const browser = await launch();
 
     const page = await browser.newPage();
@@ -11,10 +25,14 @@ async function main() {
     );
 
     await new Promise((r) => setTimeout(r, 7000));
-    await page.screenshot({ path: `screenshots/${scriptName}/pagina.png` });
+    await page.screenshot({
+        path: `screenshots/${scriptName}/${ghostVersion}/pagina.png`
+    });
     await page.click('button');
     await new Promise((r) => setTimeout(r, 9000));
-    await page.screenshot({ path: `screenshots/${scriptName}/pagina2.png` });
+    await page.screenshot({
+        path: `screenshots/${scriptName}/${ghostVersion}/pagina2.png`
+    });
     console.log('Project loaded');
 
     //Interactuar con la aplicación web
@@ -32,7 +50,7 @@ async function main() {
         elems++;
     }
     await page.screenshot({
-        path: `screenshots/${scriptName}/form-feedback.png`
+        path: `screenshots/${scriptName}/${ghostVersion}/form-feedback.png`
     });
     console.log(
         `Clicked "Register" with an empty form. Feedback is shown in ${elems} elements`
@@ -46,7 +64,7 @@ async function main() {
 
     await new Promise((r) => setTimeout(r, 7000));
     await page.screenshot({
-        path: `screenshots/${scriptName}/success-feedback.png`
+        path: `screenshots/${scriptName}/${ghostVersion}/success-feedback.png`
     });
 
     feedback = await page.$('div.alert.alert-success');
@@ -62,7 +80,7 @@ async function main() {
 
     text = await page.evaluate((el) => el.textContent, feedback);
     await page.screenshot({
-        path: `screenshots/${scriptName}/after-login.png`
+        path: `screenshots/${scriptName}/${ghostVersion}/after-login.png`
     });
     console.log(
         `Logged in. Your user was ${
@@ -74,4 +92,7 @@ async function main() {
     await browser.close();
 }
 
-main();
+const ghostVersion = process.argv[2] || 'latest';
+const ghostPort = process.argv[3] || '8080';
+
+main(ghostVersion, ghostPort);

@@ -7,6 +7,10 @@ import { devices } from '@playwright/test';
  */
 // require('dotenv').config();
 
+const ghostVersion = process.env.GHOST_VERSION || 'latest';
+const ghostPort = process.env.GHOST_PORT || '8080';
+const ghostTestArguments = { ghostVersion, ghostPort };
+
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
@@ -47,21 +51,24 @@ const config: PlaywrightTestConfig = {
         {
             name: 'chromium',
             use: {
-                ...devices['Desktop Chrome']
+                ...devices['Desktop Chrome'],
+                ...ghostTestArguments
             }
         },
 
         {
             name: 'firefox',
             use: {
-                ...devices['Desktop Firefox']
+                ...devices['Desktop Firefox'],
+                ...ghostTestArguments
             }
         },
 
         {
             name: 'webkit',
             use: {
-                ...devices['Desktop Safari']
+                ...devices['Desktop Safari'],
+                ...ghostTestArguments
             }
         }
 

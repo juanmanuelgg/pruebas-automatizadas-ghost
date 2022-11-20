@@ -1,10 +1,10 @@
 #!/bin/bash
 
-USAGE="Modo de uso: $0 [-g 'x.y.z' -m 'x.y.z' -p '****' ] [-h]              \n
-	-u Ghost version                                                        \n
-	-H MySQL version                                                        \n
-	-p Ghost port                                                           \n
-    -h Mostrar esta ayuda                                                   \n
+USAGE="Modo de uso: $0 [-g 'x.y.z' -m 'x.y.z' -p '****' ] [-h]      \n
+	-u Ghost version                                                \n
+	-H MySQL version                                                \n
+	-p Ghost port                                                   \n
+    -h Mostrar esta ayuda                                           \n
 "
 
 GHOST_VERSION=
@@ -32,6 +32,13 @@ function processInvocation () {
 	fi
 }
 
+function ensureVolumesFolders () {
+    set -x
+    mkdir -p ./docker/volumes/ghost-volumes/${GHOST_VERSION:-latest}
+    mkdir -p ./docker/volumes/mysql-volumes/${MYSQL_VERSION:-latest}
+    set +x
+}
+
 function main () {
     export GHOST_VERSION
     export MYSQL_VERSION
@@ -40,4 +47,5 @@ function main () {
 }
 
 processInvocation $@
+ensureVolumesFolders
 main

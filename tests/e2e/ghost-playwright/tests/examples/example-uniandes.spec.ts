@@ -1,20 +1,29 @@
 //Importar Playwright
-import { test, expect } from '@playwright/test';
+import { expect } from '@playwright/test';
 import { basename } from 'path';
+import { test } from '../../ghost-test';
 
 const scriptName = basename(__filename, '.spec.ts');
 
 //Función flecha asíncrona
-test('homepage has title and links to intro page', async ({ page }) => {
+test('homepage has title and links to intro page', async ({
+    page,
+    ghostVersion,
+    ghostPort
+}) => {
     //Abrir la URL a probar en la página y cargar el proyecto en una SPA
     await page.goto(
         'https://angular-6-registration-login-example.stackblitz.io/register'
     );
     await new Promise((r) => setTimeout(r, 2000));
-    await page.screenshot({ path: `screenshots/${scriptName}/pagina.png` });
+    await page.screenshot({
+        path: `screenshots/${ghostVersion}/${scriptName}/pagina.png`
+    });
     await page.click('css=button');
     await new Promise((r) => setTimeout(r, 2000));
-    await page.screenshot({ path: `screenshots/${scriptName}/pagina2.png` });
+    await page.screenshot({
+        path: `screenshots/${ghostVersion}/${scriptName}/pagina2.png`
+    });
     console.log('Project loaded');
 
     //Interactuar con la aplicación web
@@ -32,7 +41,7 @@ test('homepage has title and links to intro page', async ({ page }) => {
         elems++;
     }
     await page.screenshot({
-        path: `screenshots/${scriptName}/form-feedback.png`
+        path: `screenshots/${ghostVersion}/${scriptName}/form-feedback.png`
     });
     console.log(
         `Clicked "Register" with an empty form. Feedback is shown in ${elems} elements`
@@ -46,7 +55,7 @@ test('homepage has title and links to intro page', async ({ page }) => {
 
     await new Promise((r) => setTimeout(r, 2000));
     await page.screenshot({
-        path: `screenshots/${scriptName}/success-feedback.png`
+        path: `screenshots/${ghostVersion}/${scriptName}/success-feedback.png`
     });
 
     let feedback2 = await page.$('css=div.alert.alert-success');
@@ -63,7 +72,7 @@ test('homepage has title and links to intro page', async ({ page }) => {
 
     let feedback3 = await page.$('text="Hi Monitor!"');
     await page.screenshot({
-        path: `screenshots/${scriptName}/after-login.png`
+        path: `screenshots/${ghostVersion}/${scriptName}/after-login.png`
     });
     console.log(
         `Logged in. Your user was ${feedback3 ? 'successfully' : 'not'} created`

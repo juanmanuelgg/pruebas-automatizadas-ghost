@@ -80,12 +80,23 @@ npm run dcompose -- -g 'x.y.z' -m 'x.y.z' -p '****'
 npm run dcompose -- -g '3.42.6' -m '5.7.40' -p '8081' # Corre ghost 3.42.6 y mysql 5.7.40 exponiendo ghost en el puerto 8081
 ```
 
-Luego de eso las pruebas se corren especificando la version en prueba y el puerto donde se expone con este comando:
+Luego de eso las pruebas se corren especificando la version en prueba y el puerto donde se expone con estos comandos:
 
 ```bash
+# Ejecutar la suite de pruebas de cypress
 npm run test:e2e:cypress -- --env GHOST_VERSION='x.y.z',GHOST_PORT='****'
 # Ejemplo
 npm run test:e2e:cypress -- --env GHOST_VERSION='3.42.6',GHOST_PORT='8081'
+
+# Ejecutar la suite de pruebas de puppeteer
+npm run test:e2e:puppeteer -- 'x.y.z' '****'
+# Ejemplo
+npm run test:e2e:puppeteer -- '3.42.6' '8081'
+
+# Ejecutar la suite de pruebas de playwright
+npm run test:e2e:playwright -- -g 'x.y.z' -p '****'
+# Ejemplo
+npm run test:e2e:playwright -- -g '3.42.6' -p '8081'
 ```
 
 Y finalmente despues de haber corrido los test bajo las 2 versiones de ghost se tendran almacenados los artefactos generados por las pruebas.
@@ -95,14 +106,21 @@ El flujo de trabajo esperado es el siguiente:
 
 ```bash
 npm run dcompose -- -g '3.42.6' -m '5.7.40' -p '8081'
-# Esperar un poco, probar la url http://localhost:8081
+# Esperar un poco (1 minuto en mi maquina), probar la url http://localhost:8081
 npm run test:e2e:cypress -- --env GHOST_VERSION='3.42.6',GHOST_PORT='8081'
+npm run test:e2e:puppeteer -- '3.42.6' '8081'
+npm run test:e2e:playwright -- -g '3.42.6' -p '8081'
+npm run dteardown -- -g '3.42.6' -m '5.7.40'
 
 npm run dcompose -- -g '5.22.9' -m '8.0.31' -p '8082'
-# Esperar un poco, probar la url http://localhost:8082
+# Esperar un poco (1 minuto en mi maquina), probar la url http://localhost:8082
 npm run test:e2e:cypress -- --env GHOST_VERSION='5.22.9',GHOST_PORT='8082'
+npm run test:e2e:puppeteer -- '5.22.9' '8082'
+npm run test:e2e:playwright -- -g '5.22.9' -p '8082'
+npm run dstop
 
-npm run test:vrt
+# npm run test:vrt:backstop -- -a '3.42.6' -b '5.22.9'
+# npm run test:vrt:resemble -- -a '3.42.6' -b '5.22.9'
 ```
 
 ### Consideraciones

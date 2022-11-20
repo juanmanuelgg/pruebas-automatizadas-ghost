@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Pruebas E2E a la plataforma GHOST con el framework playwright.",
     "scripts": {
-        "test": "playwright test",
+        "test": "./test-playwright.sh",
         "report": "playwright show-report",
         "format": "prettier --write tests"
     },

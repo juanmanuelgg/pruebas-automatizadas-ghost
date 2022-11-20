@@ -1,6 +1,11 @@
-import { test, expect } from '@playwright/test';
+import { expect } from '@playwright/test';
+import { test } from '../../ghost-test';
 
-test('homepage has title and links to intro page', async ({ page }) => {
+test('homepage has title and links to intro page', async ({
+    page,
+    ghostVersion,
+    ghostPort
+}) => {
     await page.goto('https://playwright.dev/');
 
     // Expect a title "to contain" a substring.

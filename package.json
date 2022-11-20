@@ -6,11 +6,14 @@
         "tests/e2e/ghost-cypress",
         "tests/e2e/ghost-kraken",
         "tests/e2e/ghost-playwright",
-        "tests/e2e/ghost-puppeteer"
+        "tests/e2e/ghost-puppeteer",
+        "tests/vrt/ghost-backstop",
+        "tests/vrt/ghost-resemble"
     ],
     "scripts": {
         "format": "npm run format --workspace=**/* --if-present",
         "dcompose": "./setup-ghost.sh",
+        "dteardown": "./teardown-ghost.sh",
         "dstop": "docker compose stop",
         "dprune": "docker volume prune -f",
         "drm": "docker compose rm -fsv && npm run dprune",
