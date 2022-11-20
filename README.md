@@ -163,7 +163,9 @@ Se debe dejar pasar un tiempo entre la puesta en pie de los contenedores y las p
 
 Las pruebas generan evidencias graficas, principalmente capturas de pantalla pero videos también en el caso de cypress.
 
-Las capturan de pantalla son el insumo de las pruebas de regesion visual. aqui se especifica donde pueden encontrarse y el formato de nombramiento que siguen.
+Las capturan de pantalla son el insumo de las pruebas de regesion visual. Se recuperan de sus proyectos con un script y se dejan en la carpeta screenshots.
+
+![Artefactos generados por las pruebas](./docs/images/artefactos-generados-por-las-pruebas.png)
 
 ## Enlace al analisis de las herramientas
 
