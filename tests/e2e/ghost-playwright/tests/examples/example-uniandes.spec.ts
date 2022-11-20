@@ -3,7 +3,7 @@ import { expect } from '@playwright/test';
 import { basename } from 'path';
 import { test } from '../../ghost-test';
 
-const scriptName = basename(__filename, '.spec.ts');
+const scriptName = basename(__filename);
 
 //Función flecha asíncrona
 test('homepage has title and links to intro page', async ({

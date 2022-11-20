@@ -1,13 +1,12 @@
+import { launch } from 'puppeteer';
 import GhostTest from '../ghost-test.mjs';
 
 class ExampleUniandes extends GhostTest {
-    constructor(hostVersion, ghostPort) {
-        super(hostVersion, ghostPort);
+    constructor(hostVersion, ghostPort, scriptName) {
+        super(hostVersion, ghostPort, scriptName);
     }
 
     async testedFunctionality() {
-        createDir(`screenshots/${this.scriptName}/${this.ghostVersion}/`);
-
         const browser = await launch();
 
         const page = await browser.newPage();

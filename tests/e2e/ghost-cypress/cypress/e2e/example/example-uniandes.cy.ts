@@ -1,8 +1,6 @@
 /// <reference types="cypress" />
 import { basename } from 'path';
 
-const scriptName = basename(__filename, '.cy.ts');
-
 const ghostVersion = Cypress.env('GHOST_VERSION');
 const ghostPort = Cypress.env('GHOST_PORT');
 
@@ -12,16 +10,17 @@ describe('Testing basic Angular registration', () => {
             'https://angular-6-registration-login-example.stackblitz.io/register'
         );
         cy.wait(7000);
-        cy.screenshot(`${scriptName}/${ghostVersion}/pagina.png`);
         cy.get('button').click();
-        cy.screenshot(`${scriptName}/${ghostVersion}/pagina2.png`);
     });
+
     it('Test links between registration and login page', () => {
+        cy.screenshot(`${ghostVersion}/pagina`);
         cy.get('a.btn.btn-link').click();
         cy.url().should(
             'eq',
             'https://angular-6-registration-login-example.stackblitz.io/login'
         );
+        cy.screenshot(`${ghostVersion}/pagina2`);
         cy.get('a.btn.btn-link').click();
         cy.url().should(
             'eq',
@@ -34,7 +33,7 @@ describe('Testing basic Angular registration', () => {
         cy.get('div.invalid-feedback').then(($divs) => {
             expect($divs.length).to.equal(4);
         });
-        cy.screenshot(`${scriptName}/${ghostVersion}/form-feedback.png`);
+        cy.screenshot(`${ghostVersion}/form-feedback`);
     });
     it('Create an user and login', () => {
         cy.get('form').within(() => {
@@ -45,7 +44,7 @@ describe('Testing basic Angular registration', () => {
             cy.get('button.btn.btn-primary').click();
         });
         cy.wait(1000);
-        cy.screenshot(`${scriptName}/${ghostVersion}/success-feedback.png`);
+        cy.screenshot(`${ghostVersion}/success-feedback`);
         //Redirected to login
         cy.get('div.alert.alert-success').should('be.visible');
         cy.get('form').within(() => {
@@ -58,6 +57,6 @@ describe('Testing basic Angular registration', () => {
         cy.get('h1').then(($header) => {
             expect($header[0].innerText).to.equal('Hi Monitor!');
         });
-        cy.screenshot(`${scriptName}/${ghostVersion}/after-login.png`);
+        cy.screenshot(`${ghostVersion}/after-login`);
     });
 });

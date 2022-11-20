@@ -6,7 +6,11 @@ import { ExampleUniandes } from './ghost/example-uniandes.mjs';
  * @param {*} ghostPort El puerto por el que esta saliendo ghost
  */
 async function main(ghostVersion, ghostPort) {
-    const exampleUniandes = new ExampleUniandes(ghostVersion, ghostPort);
+    const exampleUniandes = new ExampleUniandes(
+        ghostVersion,
+        ghostPort,
+        'example-uniandes.mjs'
+    );
     await exampleUniandes.createDir();
     await exampleUniandes.testedFunctionality();
 }

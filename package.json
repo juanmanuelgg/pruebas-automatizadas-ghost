@@ -19,7 +19,8 @@
         "test:e2e:playwright": "npm test --workspace=tests/e2e/ghost-playwright --",
         "test:e2e:puppeteer": "npm test --workspace=tests/e2e/ghost-puppeteer --",
         "test:e2e": "npm test --workspace=tests/e2e/* --if-present --",
-        "test": "npm test --workspace=tests/**/* --if-present --"
+        "test": "npm test --workspace=tests/**/* --if-present --",
+        "retrieve:screenshots": "./retrieve-screenshots.sh"
     },
     "repository": {
         "type": "git",

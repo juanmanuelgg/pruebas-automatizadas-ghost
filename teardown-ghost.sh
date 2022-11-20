@@ -30,6 +30,7 @@ function processInvocation () {
 }
 
 function deleteVolumesFolders () {
+    echo 'Va a pedir contraseña para borrar los volumes ./docker/volumes/ghost-volumes & ./docker/volumes/mysql-volumes/'
     set -x
     sudo rm -rf "./docker/volumes/ghost-volumes/${GHOST_VERSION:-latest}"
     sudo rm -rf "./docker/volumes/mysql-volumes/${MYSQL_VERSION:-latest}"
