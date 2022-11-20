@@ -71,9 +71,45 @@ http://localhost:8080/ghost/#/setup
 
 ## Instrucciones para ejecutar los escenarios
 
+Para ejecutar los escenarios se debe primeo poner a correr una instacia de ghost local, junto con una instancia de mysql y especificar el puerto por el que se expone ghost.
+Eso se puede lograr dentro de este proyecto ejecutando el comando:
+
 ```bash
-npm test
+npm run dcompose -- -g 'x.y.z' -m 'x.y.z' -p '****'
+# Ejemplo:
+npm run dcompose -- -g '3.42.6' -m '5.7.40' -p '8081' # Corre ghost 3.42.6 y mysql 5.7.40 exponiendo ghost en el puerto 8081
 ```
+
+Luego de eso las pruebas se corren especificando la version en prueba y el puerto donde se expone con este comando:
+
+```bash
+npm run test:e2e:cypress -- --env GHOST_VERSION='x.y.z',GHOST_PORT='****'
+# Ejemplo
+npm run test:e2e:cypress -- --env GHOST_VERSION='3.42.6',GHOST_PORT='8081'
+```
+
+Y finalmente despues de haber corrido los test bajo las 2 versiones de ghost se tendran almacenados los artefactos generados por las pruebas.
+De esos artefactos se usaran las capturas de pantalla para ejecutar las pruebas de regresión/degradación visual.
+
+El flujo de trabajo esperado es el siguiente:
+
+```bash
+npm run dcompose -- -g '3.42.6' -m '5.7.40' -p '8081'
+# Esperar un poco, probar la url http://localhost:8081
+npm run test:e2e:cypress -- --env GHOST_VERSION='3.42.6',GHOST_PORT='8081'
+
+npm run dcompose -- -g '5.22.9' -m '8.0.31' -p '8082'
+# Esperar un poco, probar la url http://localhost:8082
+npm run test:e2e:cypress -- --env GHOST_VERSION='5.22.9',GHOST_PORT='8082'
+
+npm run test:vrt
+```
+
+### Consideraciones
+
+Se debe dejar pasar un tiempo entre la puesta en pie de los contenedores y las pruebas. Ghost falla en conectarse con mysql varias veces hasta que eventualmente esta listo y pueden establecer la conexión.
+
+![Esperar inicio de sistema](./docs/images/evidencia-esperar-inicio-de-sistema.png)
 
 ## Artefactos generados de las pruebas.
 

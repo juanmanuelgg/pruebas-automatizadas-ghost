@@ -19,3 +19,7 @@ import './commands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+Cypress.Screenshot.defaults({
+    clip: { x: 0, y: 0, width: 1920, height: 1080 }
+});

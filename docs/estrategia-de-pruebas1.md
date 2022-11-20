@@ -26,19 +26,20 @@ Criterios de revisión
 
 ====
 
-Estrategia de Pruebas
-    1. Aplicación Bajo Pruebas
+Estrategia de Pruebas 1. Aplicación Bajo Pruebas
 
-        1.1. Nombre Aplicación: <InserteNombreApp> 
+        1.1. Nombre Aplicación: <InserteNombreApp>
         1.2. Versión: <InserteVersionApp>
-        1.3. Descripción: 
+        1.3. Descripción:
+
 <InserteDescripciónAplicación>
-        1.4. Funcionalidades Core:
-    • Liste las … 
-    • Funcionalidades base de la …
-    • Aplicación Bajo Pruebas
+1.4. Funcionalidades Core:
+• Liste las …
+• Funcionalidades base de la …
+• Aplicación Bajo Pruebas
 
         1.5. Diagrama de Arquitectura:
+
 <InserteDiagramaDeArquitectura>
 Se recomienda agregar un link al diagrama cuando el tamaño de este no permita su correcta visualización en este documento.
         1.6. Diagrama de Contexto:
@@ -53,6 +54,7 @@ Se recomienda agregar un link al diagrama cuando el tamaño de este no permita s
     2.  Contexto de la estrategia de pruebas
 
         2.1. Objetivos:
+
 Establecer cuáles son los objetivos que se esperan alcanzar durante el periodo de pruebas. Por ejemplo, si el enfoque es en la parte funcional o no funcional; si el enfoque es alcanzar cobertura de código o detectar defectos; si las pruebas son exploratorias o no.
 
         2.2. Duración de la iteración de pruebas : fechas, horas
@@ -61,18 +63,22 @@ Establecer cuáles son los objetivos que se esperan alcanzar durante el periodo 
 
 
             2.3.1. Recursos Humanos
+
 Describir brevemente la experiencia previa del conjunto de personas que harán parte del periodo de pruebas, esto nos permitirá aprovechar las capacidades de cada una de estas personas y obtener el mejor resultado. Adicionalmente, se debe especificar el tiempo disponible de las personas para el proceso de pruebas.
 
             2.3.2. Recursos Computacionales
+
 Listar los dispositivos y las capacidades computaciones de los componentes físicos con los que se cuenta para realizar las pruebas: computadores, servidores, dispositivos móviles, dispositivos de grabación, dispositivos externos para la realización de pruebas.
 Es necesario poder tener en cuenta las restricciones con las que se cuenta frente a la infraestructura previamente mencionada, de esta forma se puede planear mejor de qué forma se usara cada recurso.
 
             2.3.3. Recursos Económicos para la contratación de servicios/personal:
+
 En algunos proyectos se cuenta con recursos económicos específicamente dedicados para tercerizar tareas, se deben presentar en esta sección para no ejecutar internamente dichas tareas.
 
         2.4. TNT (Técnicas, Niveles y Tipos) de pruebas:
+
 Se deben especificar las técnicas, los niveles y los tipos de pruebas a utilizar teniendo en cuenta lo previamente establecido. Se debe especificar la relación entre lo reportado en esta sección y los objetivos especificados en Sec. 2.1. Es suficiente mencionar el objetivo que se esta abordando con cada técnica seleccionada.
-        2.5. Distribución de Esfuerzo
+2.5. Distribución de Esfuerzo
 Describa la distribución de esfuerzo que planea utilizar durante esta etapa de pruebas. Dada la metodología del curso, mencione los momentos en los que planea ejecutar esta estrategia. En esta distribución se debe describir la asignación de recursos del presupuesto de pruebas y tiempo a las actividades mencionadas en 2.4
 
 =====
@@ -101,7 +107,7 @@ Describa la distribución de esfuerzo que planea utilizar durante esta etapa de 
 
 =====
 
-Los objetivos de la estrategia de pruebas deben ser claros. Deben empezar con un verbo y deben poder ser asociables a un conjunto de actividades/tareas de pruebas descritas en  la estrategia.
+Los objetivos de la estrategia de pruebas deben ser claros. Deben empezar con un verbo y deben poder ser asociables a un conjunto de actividades/tareas de pruebas descritas en la estrategia.
 
 4​. La distribución de esfuerzo debe ser asociada a uno de los patrones o anti-patrones vistos, en caso de no ser así debe sustentar por que se generan los cambios propuestos.
 

@@ -9,24 +9,17 @@
         "tests/e2e/ghost-puppeteer"
     ],
     "scripts": {
-        "format": "npm run format --workspace=* --if-present",
-        "dcompose": "export GHOST_VERSION='3.42.6'; export MYSQL_VERSION='5.7.40'; export GHOST_PORT='8081'; docker compose up -d --build",
-        "dcompose:latest": "export GHOST_VERSION='5.22.9'; export MYSQL_VERSION='8.0.31'; export GHOST_PORT='8081'; docker compose up -d --build",
+        "format": "npm run format --workspace=**/* --if-present",
+        "dcompose": "./setup-ghost.sh",
         "dstop": "docker compose stop",
         "dprune": "docker volume prune -f",
         "drm": "docker compose rm -fsv && npm run dprune",
-        "pretest:cypress": "npm run dcompose",
-        "test:cypress": "npm test --workspace=tests/e2e/ghost-cypress",
-        "pretest:kraken": "npm run dcompose",
-        "test:kraken": "npm test --workspace=tests/e2e/ghost-kraken",
-        "pretest:playwright": "npm run dcompose",
-        "test:playwright": "npm test --workspace=tests/e2e/ghost-playwright",
-        "pretest:puppeteer": "npm run dcompose",
-        "test:puppeteer": "npm test --workspace=tests/e2e/ghost-puppeteer",
-        "pretest:e2e": "npm run dcompose",
-        "test:e2e": "npm test --workspace=tests/e2e/* --if-present",
-        "pretest": "npm run dcompose",
-        "test": "npm test --workspace=tests/**/* --if-present"
+        "test:e2e:cypress": "npm test --workspace=tests/e2e/ghost-cypress --",
+        "test:e2e:kraken": "npm test --workspace=tests/e2e/ghost-kraken --",
+        "test:e2e:playwright": "npm test --workspace=tests/e2e/ghost-playwright --",
+        "test:e2e:puppeteer": "npm test --workspace=tests/e2e/ghost-puppeteer --",
+        "test:e2e": "npm test --workspace=tests/e2e/* --if-present --",
+        "test": "npm test --workspace=tests/**/* --if-present --"
     },
     "repository": {
         "type": "git",
