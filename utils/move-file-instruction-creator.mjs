@@ -28,7 +28,9 @@ function readInput() {
         justDirectories.push(aux[aux.length - 1]);
         const newFileName = justDirectories.join('/');
 
-        console.log(`mkdir -p ${newFolderName} && mv ${line} ${newFileName}`);
+        console.log(
+            `mkdir -p '${newFolderName}' && mv '${line}' '${newFileName}'`
+        );
     }).on('close', () => {
         process.exit();
     });

@@ -147,7 +147,7 @@ npm run test:e2e:puppeteer -- '5.22.9' '8082'
 npm run test:e2e:playwright -- -g '5.22.9' -p '8082'
 npm run dteardown -- -g '5.22.9' -m '8.0.31'
 
-
+npm run retrieve:screenshots -- -g '5.22.9'
 
 # npm run test:vrt:backstop -- -a '3.42.6' -b '5.22.9'
 # npm run test:vrt:resemble -- -a '3.42.6' -b '5.22.9'

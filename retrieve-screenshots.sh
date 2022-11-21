@@ -27,7 +27,7 @@ function processInvocation () {
 }
 
 function main () {
-    find . -type f -name *.png | grep "${GHOST_VERSION}" | node ./utils/move-file-instruction-creator.mjs | sh
+    find tests -type f -name *.png | grep "${GHOST_VERSION}" | node ./utils/move-file-instruction-creator.mjs | sh
 }
 
 processInvocation $@
