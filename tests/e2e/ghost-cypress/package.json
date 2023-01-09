@@ -17,7 +17,7 @@
     "author": "Juan Manuel González Garzón",
     "license": "MIT",
     "devDependencies": {
-        "cypress": "^12.2.0",
+        "cypress": "^12.3.0",
         "typescript": "^4.9.4"
     }
 }
