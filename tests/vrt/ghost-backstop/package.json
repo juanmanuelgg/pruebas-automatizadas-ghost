@@ -13,6 +13,6 @@
   "author": "Juan Manuel González Garzón",
   "license": "MIT",
   "devDependencies": {
-    "backstopjs": "^6.1.4"
+    "backstopjs": "^6.2.0"
   }
 }
