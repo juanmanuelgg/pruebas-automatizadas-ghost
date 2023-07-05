@@ -13,6 +13,6 @@
   "author": "Juan Manuel González Garzón",
   "license": "MIT",
   "devDependencies": {
-    "resemblejs": "^4.1.0"
+    "resemblejs": "^5.0.0"
   }
 }
