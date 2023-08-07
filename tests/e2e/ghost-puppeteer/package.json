@@ -16,6 +16,6 @@
     "author": "Juan Manuel González Garzón",
     "license": "MIT",
     "devDependencies": {
-        "puppeteer": "^20.9.0"
+        "puppeteer": "^21.0.1"
     }
 }
