@@ -16,6 +16,6 @@
     "author": "Juan Manuel González Garzón",
     "license": "MIT",
     "devDependencies": {
-        "@playwright/test": "^1.38.1"
+        "@playwright/test": "^1.39.0"
     }
 }
